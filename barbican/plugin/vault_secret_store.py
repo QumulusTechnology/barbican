@@ -40,6 +40,8 @@ vault_opts = [
                default=DEFAULT_MOUNTPOINT,
                help='Mountpoint of KV store in Vault to use, for example: '
                     '{}'.format(DEFAULT_MOUNTPOINT)),
+    cfg.StrOpt('kv_path',
+               help='Path relative to root of KV store in Vault to use.'),
     cfg.StrOpt('vault_url',
                default=DEFAULT_VAULT_URL,
                help='Use this endpoint to connect to Vault, for example: '
@@ -88,6 +90,7 @@ class VaultSecretStore(css.CastellanSecretStore):
             vault_approle_role_id=conf.vault_plugin.approle_role_id,
             vault_approle_secret_id=conf.vault_plugin.approle_secret_id,
             vault_kv_mountpoint=conf.vault_plugin.kv_mountpoint,
+            vault_kv_path=conf.vault_plugin.kv_path,
             vault_url=conf.vault_plugin.vault_url,
             vault_ssl_ca_crt_file=conf.vault_plugin.ssl_ca_crt_file,
             vault_use_ssl=conf.vault_plugin.use_ssl,
