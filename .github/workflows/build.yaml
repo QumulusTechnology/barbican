@@ -152,6 +152,7 @@ jobs:
           {% endblock %}
 
           {% block ${REPOSITORY}_base_footer %}
+          RUN pip install git+https://github.com/QumulusTechnology/barbican.git@${BRANCH}
           {% endblock %}
 
           EOF"
